@@ -11,7 +11,9 @@ class Searchbar extends Component {
     }
 
 input (term) {
-    axios.put(`/api/books/`)
+    axios.put(`/api/books/`, this.state).then(response => {
+
+    })
 }
 // search () {
 //     axios.get(`api/`
@@ -20,8 +22,9 @@ input (term) {
 //  }
 render() {
     return ( 
-    
-    <div className = "input" input type ="text" value={this.setState} onChange = {e=>this.handleChange(e)}/>
+    <div>
+    <input type ="text" onChange = {e=>this.handleChange(e)}/>
+    </div>
         
     )
 }
