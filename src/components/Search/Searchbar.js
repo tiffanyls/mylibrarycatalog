@@ -8,6 +8,8 @@ class Searchbar extends Component {
             term: "",
             results: []
         }
+        this.handleChange=this.handleChange.bind(this);
+        this.handleClick=this.handleClick.bind(this);
     }
     
 
@@ -15,17 +17,22 @@ class Searchbar extends Component {
         this.setState({term: event.target.value});
       }
 
-// search () {
-//     axios.get(`api/`
-//     `).then (response => (this.setState)
+    handleClick (e) {
+        e.preventDefault()
+        axios.get(`/api/books?search=${this.state.term}`).then (response => this.setState({results: response.data.items}))
+        };
 
-//  }
 render() {
+   // console.log(this.state.results)
+    const results = this.state.results.map((c,i) => <div key={i}> {c.volumeInfo.title}</div>)
+    //<Results key={i} book={c} />
     return ( 
     <div>
-    <form>
+    <form onSubmit={(e) => this.handleClick(e)}>
     <input type="text" term={this.state.value} onChange={this.handleChange} placeholder="Search for your book"/></form>
     <button onClick={this.handleClick}>Search</button>
+    <h1>Results</h1> 
+    {results}
     </div>
  
         
