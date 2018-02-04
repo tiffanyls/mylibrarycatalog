@@ -2,19 +2,19 @@ import React, {Component} from "react";
 import axios from "axios";
 
 class Searchbar extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             term: "",
             results: []
         }
     }
+    
 
-input (term) {
-    axios.put(`/api/books/`, this.state).then(response => {
+    handleChange(event) {
+        this.setState({term: event.target.value});
+      }
 
-    })
-}
 // search () {
 //     axios.get(`api/`
 //     `).then (response => (this.setState)
@@ -23,8 +23,11 @@ input (term) {
 render() {
     return ( 
     <div>
-    <input type ="text" onChange = {e=>this.handleChange(e)}/>
+    <form>
+    <input type="text" term={this.state.value} onChange={this.handleChange} placeholder="Search for your book"/></form>
+    <button onClick={this.handleClick}>Search</button>
     </div>
+ 
         
     )
 }
