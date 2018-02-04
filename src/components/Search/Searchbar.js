@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
+import Results from "./../Results/results";
 
 class Searchbar extends Component {
     constructor(props) {
@@ -23,9 +24,9 @@ class Searchbar extends Component {
         };
 
 render() {
-   // console.log(this.state.results)
-    const results = this.state.results.map((c,i) => <div key={i}> {c.volumeInfo.title}</div>)
-    //<Results key={i} book={c} />
+   console.log(this.state.results)
+   const results = this.state.results.map((c,i) => <Results key={i} book={c} />)
+    //Results key={i} book={c} />
     return ( 
     <div>
     <form onSubmit={(e) => this.handleClick(e)}>
@@ -34,7 +35,7 @@ render() {
     <h1>Results</h1> 
     {results}
     </div>
- 
+
         
     )
 }
