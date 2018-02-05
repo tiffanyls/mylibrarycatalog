@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import axios from "axios";
 
 class Savebook extends Component{
     constructor(props){
@@ -8,7 +9,7 @@ class Savebook extends Component{
     
 
     handleClick(item){
-        console.log(item)
+        axios.post(`/api/books`,{item});
 
     }
     render(){

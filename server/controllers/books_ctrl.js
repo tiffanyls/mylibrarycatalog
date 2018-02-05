@@ -8,6 +8,12 @@ const read = (req, res, next) => {
     ).catch(err=> res.status(500).json(err))
  };
 
+ const create = (req, res, next) => {
+     let { item } = req.body;
+     res.json(item);
+ }
+
 module.exports = {
-    read
+    read,
+    create
 }
