@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import Searchbar from "./components/Search/Searchbar";
 import axios from "axios";
 import Bookshelf from './components/bookshelf/bookshelf';
+import mylibrarycolletion from './mylibrarycolletion.png';
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
       favoriteBooks: [],
-      results: []
+      results: [],
+      showFavorites: false
     }
     this.getFavorites = this.getFavorites.bind(this)
   }
@@ -19,7 +21,7 @@ class App extends Component {
 }
 
 getFavorites(){
-  axios.get('/api/savebooks').then (response => this.setState({favoriteBooks: response.data}));
+  axios.get('/api/savebooks').then (response => this.setState({favoriteBooks: response.data, showFavorites: true}));
 }
 
   render() {
@@ -27,11 +29,12 @@ getFavorites(){
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          {/* <img src={mylibrarycolletion} className="Logo" alt="logo" /> */}
           <h1 className="App-title">My Library Collection</h1>
         </header>
-        <Searchbar getFavorites={this.getFavorites}/>
-        <Bookshelf favorites={this.state.favoriteBooks}/>
+        {this.state.showFavorites ? <Bookshelf favorites={this.state.favoriteBooks}/> : <Searchbar getFavorites={this.getFavorites}/>}
+        
+        
       </div>
     );
   }

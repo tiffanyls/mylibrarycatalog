@@ -14,9 +14,13 @@ class Bookshelf extends Component {
 
 render() {
     console.log(this.props.favorites);
+    let display = this.props.favorites.map((c, i) => {
+    return <div key={i} > <h1> {c.title}</h1> <h1> {c.authors}</h1>
+    </div>});
+
     return (
         <div>
-        <h1> {this.props.favorites.volumeInfo}</h1>
+        {display}
         </div>
     )
 
