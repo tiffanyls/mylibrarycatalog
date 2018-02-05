@@ -13,10 +13,10 @@ class Bookshelf extends Component {
 
 
 render() {
-    //console.log(this.props.favorites);
+    console.log(this.props.favorites);
     return (
         <div>
-        
+        <h1> {this.props.favorites.volumeInfo}</h1>
         </div>
     )
 
