@@ -1,11 +1,21 @@
 import React, {Component} from "react";
+import Savebook from "./../savebook/savebook";
 
-const Results = (props) => {
-        return <div> 
-        <h1> {props.book.volumeInfo.title}</h1>
-        <img src={props.book.volumeInfo.imageLinks.thumbnail}/>
-        </div> 
+class Results extends Component{
+    constructor(props){
+        super(props)
+    }
+    render(){
+        // console.log(this.props.book, "Here")
+        return (<div> 
+        <img src={this.props.book.volumeInfo.imageLinks.thumbnail}/>
+        <h1> {this.props.book.volumeInfo.title}</h1>
+        <h2> {this.props.book.volumeInfo.authors}</h2>
+        <Savebook currentbook={this.props.book} />
+
+        
+        </div> )
     
-}
+}}
 
 export default Results;
