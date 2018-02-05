@@ -25,7 +25,7 @@ class Searchbar extends Component {
 
 render() {
    console.log(this.state.results)
-   const results = this.state.results.map((c,i) => <Results key={i} book={c} />)
+   const results = this.state.results.map((c,i) => <Results getFavorites={this.props.getFavorites} key={i} book={c} />)
     //Results key={i} book={c} />
     return ( 
     <div>

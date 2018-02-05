@@ -10,10 +10,10 @@ class Savebook extends Component{
 
     handleClick(item){
         axios.post(`/api/books`,{item});
-
+        this.props.getFavorites()
     }
     render(){
-        console.log(this.props.currentbook, "Here")
+        //console.log(this.props.currentbook, "Here")
         return (
         <div> 
         

@@ -6,12 +6,12 @@ class Results extends Component{
         super(props)
     }
     render(){
-        // console.log(this.props.book, "Here")
+        console.log(this.props.book, "Here")
         return (<div> 
-        <img src={this.props.book.volumeInfo.imageLinks.thumbnail} alt="Thumbnail"/>
+       { this.props.book.volumeInfo.imageLinks && <img src={this.props.book.volumeInfo.imageLinks.thumbnail} alt="Thumbnail"/>}
         <h1> {this.props.book.volumeInfo.title}</h1>
         <h2> {this.props.book.volumeInfo.authors}</h2>
-        <Savebook currentbook={this.props.book} />
+        <Savebook getFavorites={this.props.getFavorites} currentbook={this.props.book} />
 
         
         </div> )
