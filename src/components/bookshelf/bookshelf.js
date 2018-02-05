@@ -13,7 +13,7 @@ class Bookshelf extends Component {
 
 
 render() {
-    console.log(this.props.favorites);
+    //console.log(this.props.favorites);
     return (
         <div>
         

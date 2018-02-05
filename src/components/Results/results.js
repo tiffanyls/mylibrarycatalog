@@ -6,7 +6,7 @@ class Results extends Component{
         super(props)
     }
     render(){
-        console.log(this.props.book, "Here")
+        //console.log(this.props.book, "Here")
         return (<div> 
        { this.props.book.volumeInfo.imageLinks && <img src={this.props.book.volumeInfo.imageLinks.thumbnail} alt="Thumbnail"/>}
         <h1> {this.props.book.volumeInfo.title}</h1>
