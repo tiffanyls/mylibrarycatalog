@@ -23,6 +23,9 @@ class App extends Component {
 getFavorites(){
   axios.get('/api/savebooks').then (response => this.setState({favoriteBooks: response.data, showFavorites: true}));
 }
+changeViews() {
+  this.setState({showFavorites: !this.state.showFavorites});
+}
 
   render() {
     console.log(this.state.favoriteBooks)
@@ -31,6 +34,8 @@ getFavorites(){
         <header className="App-header">
           {/* <img src={mylibrarycolletion} className="Logo" alt="logo" /> */}
           <h1 className="App-title">My Library Collection</h1>
+          <button onClick={() => this.changeViews()}>Home</button>
+          <button onClick={() => this.changeViews()}>My Books</button>
         </header>
         {this.state.showFavorites ? <Bookshelf favorites={this.state.favoriteBooks}/> : <Searchbar getFavorites={this.getFavorites}/>}
         
