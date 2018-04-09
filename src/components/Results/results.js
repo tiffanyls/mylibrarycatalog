@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import Savebook from "./../savebook/savebook";
 
 class Results extends Component {
-  constructor(props) {
-    super(props);
-  }
+  
   render() {
     //console.log(this.props.book, "Here")
     return (

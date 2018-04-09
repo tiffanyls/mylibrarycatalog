@@ -13,14 +13,19 @@ const read = (req, res, next) => {
  const create = (req, res, next) => {
      let { item } = req.body;
      savebooks.push(item);
- }
+ };
 
  const getSavedBooks = (req, res, next) => {
      res.json(savebooks);
- }
+ };
+
+const deleteBook = (req, res, next) =>{
+    res.send;
+}
 
 module.exports = {
     read,
     create,
-    getSavedBooks
+    getSavedBooks,
+    deleteBook
 }

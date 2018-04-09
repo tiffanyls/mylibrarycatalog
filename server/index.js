@@ -9,12 +9,14 @@ const app = express();
 const { read } = require("./controllers/books_ctrl");
 const { create } = require("./controllers/books_ctrl");
 const { getSavedBooks } = require("./controllers/books_ctrl");
+const { deleteBook } = require("./controllers/books_ctrl");
 
 app.use(bodyParser.json());
 app.use(cors());
 app.get("/api/books", read);
 app.post("/api/books", create);
 app.get("/api/savebooks", getSavedBooks);
+app.delete("api/deletebook/", deleteBook);
 
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}`);
