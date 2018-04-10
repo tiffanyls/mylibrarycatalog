@@ -38,14 +38,14 @@ class App extends Component {
   render() {
     // console.log(this.state.favoriteBooks);
     return (
-      <div className="App">
+      <div className="header">
         <header className="App-header">
           <p>My Library Catalog</p>
           <button className = "home" onClick={() => this.changeViews()}>Home</button>
           <button className ="mybooks" onClick={() => this.changeViews()}>My Books</button>
         </header>
         {this.state.showFavorites ? (
-          <Bookshelf favorites={this.state.favoriteBooks} />
+          <Bookshelf favorites={this.state.favoriteBooks} getFavorites={this.getFavorites}/>
         ) : (
           <Searchbar getFavorites={this.getFavorites} />
         )}

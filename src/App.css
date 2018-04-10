@@ -1,4 +1,4 @@
-.App {
+.header {
   text-align: center;
 }
 
@@ -16,21 +16,16 @@ p {
   font-size: 20px;
   line-height: 50px;
 }
-]
-
-.App-intro {
-  font-size: large;
-}
 
 .home{
-  display: flex;
+ 
   height: 20%;
   margin-left: 1020px;
   margin-top: 37px;
   
 }
 .mybooks{
-  display: flex;
+  
   height: 20%;
   margin-top: 37px;
 }

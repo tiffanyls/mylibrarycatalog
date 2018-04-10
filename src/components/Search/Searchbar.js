@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Results from "./../Results/results";
-import Bookshelf from './../bookshelf/bookshelf';
+
 
 class Searchbar extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class Searchbar extends Component {
   }
 
   render() {
-    console.log(this.state.results);
+    // console.log(this.state.results);
     const results = this.state.results.map((c, i) => (
       <Results getFavorites={this.props.getFavorites} key={i} book={c} />
     ));

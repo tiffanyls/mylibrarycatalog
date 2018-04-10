@@ -11,9 +11,8 @@ class Bookshelf extends Component {
     this.deleteBook = this.deleteBook.bind(this);
   }
   deleteBook(i) {
-    axios
-      .delete(`/api/deletebook/${i}`)
-      .then(response => this.setState({ favoriteBooks: response.data }));
+    axios.delete(`/api/deletebook/${i}`)
+      .then(response => this.props.getFavorites());
   }
 
   render() {
@@ -31,8 +30,9 @@ class Bookshelf extends Component {
         );
       });
      
-      return <div>{display}</div>;
-      <Searchbar />
+      return <div><Searchbar />
+      {display}
+      </div>
     }
   }
 

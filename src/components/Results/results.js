@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Savebook from "./../savebook/savebook";
-import Searchbar from "../Search/Searchbar";
+
 
 class Results extends Component {
   render() {
