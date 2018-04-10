@@ -36,7 +36,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.favoriteBooks);
+    // console.log(this.state.favoriteBooks);
     return (
       <div className="App">
         <header className="App-header">

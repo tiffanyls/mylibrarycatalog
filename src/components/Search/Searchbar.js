@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Results from "./../Results/results";
+import Bookshelf from './../bookshelf/bookshelf';
 
 class Searchbar extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class Searchbar extends Component {
         <button onClick={this.handleClick}>Search</button>
         <h1>Results</h1>
         {results}
+        
       </div>
     );
   }

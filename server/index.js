@@ -16,7 +16,7 @@ app.use(cors());
 app.get("/api/books", read);
 app.post("/api/books", create);
 app.get("/api/savebooks", getSavedBooks);
-app.delete("api/deletebook/", deleteBook);
+app.delete("/api/deletebook/:index", deleteBook);
 
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}`);

@@ -12,12 +12,10 @@ class Savebook extends Component {
     this.props.getFavorites();
   }
   render() {
-    //console.log(this.props.currentbook, "Here")
+    console.log(this.props.currentbook, "Savebook")
     return (
       <div>
-        <button
-          onClick={() => this.handleClick(this.props.currentbook.volumeInfo)}
-        >
+        <button onClick={() => this.handleClick(this.props.currentbook.volumeInfo)}>
           Save Book to my Collection
         </button>
       </div>
