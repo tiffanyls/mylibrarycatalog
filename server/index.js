@@ -16,6 +16,7 @@ app.use(cors());
 app.get("/api/books", read);
 app.post("/api/books", create);
 app.get("/api/savebooks", getSavedBooks);
+app.put("/api/updatebookshelf", updateBookshelf);
 app.delete("/api/deletebook/:index", deleteBook);
 
 app.listen(port, () => {

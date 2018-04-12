@@ -2,6 +2,7 @@ const { apikey } = require("./../config");
 const axios = require("axios");
 
 let savebooks = [];
+let userBookshelf ='My Bookshelf';
 
 const read = (req, res, next) => {
   axios
@@ -24,6 +25,12 @@ const create = (req, res, next) => {
 const getSavedBooks = (req, res, next) => {
   res.json(savebooks);
 };
+
+const updateBookshelf = (req, res, next)=>{
+  const {bookshelf} = req.body;
+    userBookshelf = req.body;
+    res.status(200).send(userBookshelf);
+   }
 
 const deleteBook = (req, res, next) => {
   savebooks.splice(parseInt(req.params.index), 1)

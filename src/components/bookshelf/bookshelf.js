@@ -12,21 +12,28 @@ class Bookshelf extends Component {
     };
     this.deleteBook = this.deleteBook.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   toggleEdit(i){
    this.setState({isEditing:true})
   };
+  handleChange(e){
+    axios.put(`/api/updatebookshelf=${e.target.value}`)
+    .then(response => this.setState.name);
+  }
 
   deleteBook(i) {
     axios.delete(`/api/deletebook/${i}`)
       .then(response => this.props.getFavorites());
   };
 
-  render() {
-    console.log(this.props.favorites, "here");
+  render() { 
+    // console.log(this.props.favorites, "here");
       let display = this.props.favorites.map((c, i) => {
-        return (
+        return (<div>
+          <h2>My Collection</h2><button onClick={()=> this.toggleEdit(i)}>Rename</button>
+          <h2> <input value = {this.state.name} onChange={(e) => this.handleChange(e)}/></h2>
           <div key={i}>
             {" "}
             <h1> {c.title}</h1> <h1> {c.authors}</h1>{" "}
@@ -35,11 +42,11 @@ class Bookshelf extends Component {
               Delete
             </button>
           </div>
+          </div>
         );
       });
      
       return <div><Searchbar />
-      <h1> My Collection </h1><button onClick={()=> this.toggleEdit(i)}>Rename</button>
       {display}
       </div>
     }
