@@ -42,7 +42,7 @@ class Searchbar extends Component {
           />
         </form>
         <button onClick={this.handleClick}>Search</button>
-        <h1>Results</h1>
+        
         {results}
         
       </div>

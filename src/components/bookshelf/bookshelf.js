@@ -6,14 +6,22 @@ class Bookshelf extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookshelf: []
+      bookshelf: [],
+      name: 'My Collection',
+      isEditing: false
     };
     this.deleteBook = this.deleteBook.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
   }
+
+  toggleEdit(i){
+   this.setState({isEditing:true})
+  };
+
   deleteBook(i) {
     axios.delete(`/api/deletebook/${i}`)
       .then(response => this.props.getFavorites());
-  }
+  };
 
   render() {
     console.log(this.props.favorites, "here");
@@ -31,6 +39,7 @@ class Bookshelf extends Component {
       });
      
       return <div><Searchbar />
+      <h1> My Collection </h1><button onClick={()=> this.toggleEdit(i)}>Rename</button>
       {display}
       </div>
     }
