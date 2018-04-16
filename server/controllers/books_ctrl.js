@@ -2,7 +2,7 @@ const { apikey } = require("./../config");
 const axios = require("axios");
 
 let savebooks = [];
-let userBookshelf ='My Bookshelf';
+let userBookshelf ='';
 
 const read = (req, res, next) => {
   axios
@@ -28,7 +28,7 @@ const getSavedBooks = (req, res, next) => {
 
 const updateBookshelf = (req, res, next)=>{
   const {bookshelf} = req.body;
-    userBookshelf = req.body;
+    userBookshelf = bookshelf;
     res.status(200).send(userBookshelf);
    }
 
@@ -41,5 +41,6 @@ module.exports = {
   read,
   create,
   getSavedBooks,
+  updateBookshelf,
   deleteBook
 };

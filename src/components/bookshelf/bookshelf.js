@@ -8,19 +8,24 @@ class Bookshelf extends Component {
     this.state = {
       bookshelf: [],
       name: 'My Collection',
-      isEditing: false
+      newName: ''
     };
     this.deleteBook = this.deleteBook.bind(this);
-    this.toggleEdit = this.toggleEdit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.newName = this.newName.bind(this);
+    this.saveName = this.saveName.bind(this);
   }
 
-  toggleEdit(i){
-   this.setState({isEditing:true})
-  };
-  handleChange(e){
-    axios.put(`/api/updatebookshelf=${e.target.value}`)
-    .then(response => this.setState.name);
+  newName(e) {
+    this.setState({
+      name: e.target.value
+    });
+  }
+  
+  saveName(){
+    axios.put(`/api/updatebookshelf`, {
+      name: this.state.name
+    })
+    .then(response =>this.setState({newName: response.data}));
   }
 
   deleteBook(i) {
@@ -32,8 +37,9 @@ class Bookshelf extends Component {
     // console.log(this.props.favorites, "here");
       let display = this.props.favorites.map((c, i) => {
         return (<div>
-          <h2>My Collection</h2><button onClick={()=> this.toggleEdit(i)}>Rename</button>
-          <h2> <input value = {this.state.name} onChange={(e) => this.handleChange(e)}/></h2>
+          <h2>{this.state.name}</h2>
+          <input type="text" value={this.state.name} onChange={e=> this.newName(e)}/>
+          <button onClick={this.saveName}> Rename</button>
           <div key={i}>
             {" "}
             <h1> {c.title}</h1> <h1> {c.authors}</h1>{" "}
@@ -46,7 +52,8 @@ class Bookshelf extends Component {
         );
       });
      
-      return <div><Searchbar />
+      return <div><Searchbar getFavorites={this.props.getFavorites}
+      currentbook={this.props.book}/>
       {display}
       </div>
     }

@@ -9,6 +9,7 @@ const app = express();
 const { read } = require("./controllers/books_ctrl");
 const { create } = require("./controllers/books_ctrl");
 const { getSavedBooks } = require("./controllers/books_ctrl");
+const { updateBookshelf } = require("./controllers/books_ctrl");
 const { deleteBook } = require("./controllers/books_ctrl");
 
 app.use(bodyParser.json());
