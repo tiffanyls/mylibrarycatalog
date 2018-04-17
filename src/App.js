@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom';
+
 
 import "./App.css";
 import Searchbar from "./components/Search/Searchbar";
 import axios from "axios";
 import Bookshelf from "./components/bookshelf/bookshelf";
+import routes from './routes';
 
 
 class App extends Component {
@@ -41,8 +44,6 @@ class App extends Component {
       <div className="header">
         <header className="App-header">
           <p>My Library Catalog</p>
-          <button className = "home" onClick={() => this.changeViews()}>Home</button>
-          <button className ="mybooks" onClick={() => this.changeViews()}>My Books</button>
         </header>
         {this.state.showFavorites ? (
           <Bookshelf favorites={this.state.favoriteBooks} getFavorites={this.getFavorites}/>
