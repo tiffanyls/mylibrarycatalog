@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Results from "./../Results/results";
+import './../Search/Searchbar.css';
 
 
 class Searchbar extends Component {
@@ -32,16 +33,16 @@ class Searchbar extends Component {
     ));
     //Results key={i} book={c} />
     return (
-      <div>
+      <div className='container'>
         <form onSubmit={e => this.handleClick(e)}>
           <input
             type="text"
             term={this.state.value}
             onChange={this.handleChange}
-            placeholder="Search for your book"
+            placeholder="Search for your book by title, author or subject"
           />
         </form>
-        <button onClick={this.handleClick}>Search</button>
+        <button className ="searchButton" onClick={this.handleClick}>Search</button>
         
         {results}
         
