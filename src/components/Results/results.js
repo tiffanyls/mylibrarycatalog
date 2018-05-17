@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import Savebook from "./../savebook/savebook";
 import axios from 'axios';
+import '../Results/results.css';
 
 
 class Results extends Component {
@@ -14,13 +15,13 @@ class Results extends Component {
     this.props.getFavorites();
   }
   render() {
-    console.log(this.props.book, "Here")
+    // console.log(this.props.book, "Here")
     return (
-      <div>
+      <div className="card">
         {this.props.book.volumeInfo.imageLinks && (
         <img src={this.props.book.volumeInfo.imageLinks.thumbnail} alt="Thumbnail"/> )}
         <h1> {this.props.book.volumeInfo.title}</h1>
-        <h2> {this.props.book.volumeInfo.authors}</h2>
+        <h1> {this.props.book.volumeInfo.authors}</h1>
           
         <div>
         <button onClick={() => this.handleClick(this.props.book.volumeInfo)}>

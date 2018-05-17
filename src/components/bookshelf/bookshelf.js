@@ -34,8 +34,9 @@ class Bookshelf extends Component {
   };
 
   render() { 
-    // console.log(this.props.favorites, "here");
+    console.log(this.props.favorites, "here");
       let display = this.props.favorites.map((c, i) => {
+        console.log(c)
         return (<div>
           <h2>{this.state.name}</h2>
           <input type="text" value={this.state.name} onChange={e=> this.newName(e)}/>

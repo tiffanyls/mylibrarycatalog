@@ -1,0 +1,16 @@
+.card{
+  display: flex;
+  align-items: flex-start;
+}
+
+button {
+    font-family: 'Inconsolata', monospace;
+    font-size: 15px;
+    background-color: #3e3e3b;
+    color: white;
+}
+
+h1{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+}
